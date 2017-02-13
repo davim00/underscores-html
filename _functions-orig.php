@@ -59,18 +59,6 @@ function underscores_html_setup() {
 		'caption',
 	) );
 
-	/*
-	 * Enable support for Post Thumbnails on posts and pages.
-	 *
-	 * @link https://developer.wordpress.org/themes/functionality/featured-images-post-thumbnails/
-	 */
-	add_theme_support( 'post-thumbnails' );
-    set_post_thumbnail_size( 644, 400, true ); // default Featured Image dimensions (cropped)
-
-    // additional image sizes
-    // delete the next line if you do not need additional image sizes
-    // add_image_size( 'category-thumb', 300, 9999 ); // 300 pixels wide (and unlimited height)
-
 	// Set up the WordPress core custom background feature.
 	add_theme_support( 'custom-background', apply_filters( 'underscores_html_custom_background_args', array(
 		'default-color' => 'ffffff',
@@ -105,10 +93,10 @@ function underscores_html_widgets_init() {
 		'name'          => esc_html__( 'Sidebar', 'underscores-html' ),
 		'id'            => 'sidebar-1',
 		'description'   => esc_html__( 'Add widgets here.', 'underscores-html' ),
-		'before_widget' => '<section id="%1$s" class="widget %2$s panel panel-default">',
+		'before_widget' => '<section id="%1$s" class="widget %2$s">',
 		'after_widget'  => '</section>',
-		'before_title'  => '<div class="panel-heading">',
-		'after_title'   => '</div>',
+		'before_title'  => '<h2 class="widget-title">',
+		'after_title'   => '</h2>',
 	) );
 }
 add_action( 'widgets_init', 'underscores_html_widgets_init' );
@@ -118,15 +106,6 @@ add_action( 'widgets_init', 'underscores_html_widgets_init' );
  */
 function underscores_html_scripts() {
 	wp_enqueue_style( 'underscores-html-style', get_stylesheet_uri() );
-
-	// Uncomment this line if you prefer Fontawesome to Glyphicons. Remember to remove "glyphicons.scss" from "style.scss" before compiling css.
-	// wp_enqueue_style( 'underscores-html-fontawesome', 'https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css' );
-
-	wp_enqueue_script( 'jquery' );
-
-	wp_enqueue_script( 'underscores-html-functions-js', get_template_directory_uri() . '/js/functions.js', array() );
-
-	wp_enqueue_script( 'underscores-html-botstrap-js', 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js', array(), '337', true );
 
 	wp_enqueue_script( 'underscores-html-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20151215', true );
 

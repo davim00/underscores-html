@@ -120,18 +120,3 @@ function underscores_html_category_transient_flusher() {
 }
 add_action( 'edit_category', 'underscores_html_category_transient_flusher' );
 add_action( 'save_post',     'underscores_html_category_transient_flusher' );
-
-/**
- * Customize the post password form
- */
-add_filter( 'the_password_form', 'custom_password_form' );
-function custom_password_form() {
-    global $post;
-    $label = 'pwbox-'.( empty( $post->ID ) ? rand() : $post->ID );
-    $o = '<form class="protected-post-form form-inline" action="' . get_option('siteurl') . '/wp-pass.php" method="post">
-    ' . __( "This content is password protected. To view it please enter your password below:" ) . '
-    <div class="form-group"><label for="' . $label . '">' . __( "Password: " ) . ' </label><input name="post_password" id="' . $label . '" type="password" class="form-control" /><input type="submit" class="post-password-submit btn btn-primary" value="' . esc_attr_x( 'Submit', 'submit button' ) . '" /></div>
-    </form>
-    ';
-    return $o;
-}
