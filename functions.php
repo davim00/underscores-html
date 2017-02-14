@@ -60,6 +60,41 @@ function underscores_html_setup() {
 	) );
 
 	/*
+	 * Enable support for Post Formats.
+	 *
+	 * See: https://codex.wordpress.org/Post_Formats
+	 */
+	add_theme_support( 'post-formats', array(
+		'aside',
+		'image',
+		'video',
+		'quote',
+		'link',
+		'gallery',
+		'audio',
+	) );
+
+	// Add theme support for Custom Logo.
+	add_theme_support( 'custom-logo', array(
+		'width'       => 250,
+		'height'      => 250,
+		'flex-width'  => true,
+	) );
+
+	function underscores_html_custom_logo() {
+		if ( function_exists( 'the_custom_logo' ) ) {
+			the_custom_logo();
+		}
+	}
+
+	// Change custom logo classes to play nice with Bootstrap
+	add_filter('get_custom_logo','change_logo_class');
+	function change_logo_class($html) {
+		$html = str_replace('class="custom-logo-link"', 'class="navbar-brand"', $html);
+		return $html;
+	}
+
+	/*
 	 * Enable support for Post Thumbnails on posts and pages.
 	 *
 	 * @link https://developer.wordpress.org/themes/functionality/featured-images-post-thumbnails/
@@ -162,3 +197,8 @@ require get_template_directory() . '/inc/customizer.php';
  * Load Jetpack compatibility file.
  */
 require get_template_directory() . '/inc/jetpack.php';
+
+/**
+ * Register Custom Navigation Walker
+ */
+require_once('wp_bootstrap_navwalker.php');
