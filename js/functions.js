@@ -3,6 +3,9 @@ jQuery(document).ready(function() {
     jQuery('.comment-reply-link').addClass('btn btn-sm btn-primary');
     // Basic Styling for buttons
     jQuery('#submit, button[type=submit], html input[type=button], input[type=reset], input[type=submit]').addClass('btn btn-primary');
+    // Basic Styling for forms
+    jQuery('p.comment-form-comment').addClass('form-group');
+    jQuery('textarea#comment').addClass('form-control');
     // Make all tables have default padding and horizontal borders
     jQuery('table').addClass('table');
     jQuery('table#wp-calendar').addClass('table table-striped');
