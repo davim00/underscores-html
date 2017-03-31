@@ -6,6 +6,8 @@ jQuery(document).ready(function() {
     // Basic Styling for forms
     jQuery('p.comment-form-comment').addClass('form-group');
     jQuery('textarea#comment').addClass('form-control');
+    jQuery('.widget_archive p').addClass('form-group');
+    jQuery('.widget_archive select#archives-dropdown--1').addClass('form-control');
     // Make all tables have default padding and horizontal borders
     jQuery('table').addClass('table');
     jQuery('table#wp-calendar').addClass('table table-striped');
