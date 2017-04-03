@@ -1,0 +1,60 @@
+//
+// Wordpress Base
+// --------------------------------------------------
+
+
+// Basic Wordpress-specific styling
+//
+// These styles are necessary for Wordpress.org testing and Underscores-specific classes/IDs and elements.
+
+// Some basic padding for all wrappers
+.wrapper {
+  padding:$grid-gutter-width 0;
+}
+
+// Adding basic Wordpress classes to pass the Wordpress.org tests
+.sticky, .gallery-caption, .bypostauthor {
+font-size:inherit;
+}
+
+// Necessary WP classes
+.wp-caption {
+	font-size: inherit;
+}
+
+.wp-caption-text {
+	font-size: inherit;
+}
+
+.screen-reader-text {
+	font-size: inherit;
+  display: none;
+}
+
+.alignright {
+	float: right;
+  padding-left:10px;
+}
+
+.alignleft {
+	float: left;
+  padding-right:10px;
+}
+
+.aligncenter {
+	margin:0px auto;
+}
+
+//Limit featured image size to 100%
+img.wp-post-image, article img, figure, img, #secondary img {
+	max-width: 100%;
+  height: auto;
+}
+
+// Skip to content link
+a.skip-link{
+z-index: 1000;
+position: fixed;
+top: 0px;
+right: 0px;
+}
